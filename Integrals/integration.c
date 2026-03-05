@@ -1,14 +1,20 @@
-
-
-
-
 #define INTEGRATION_C
 
 #include "integration.h"
 
 bool setQuadFormula(QuadFormula* qf, char* name)
 {
-  return true;
+	char *funcs[7] = {"left", "right", "middle", "trapezes", "simpson", "gauss2", "gauss3"};
+	
+	for(int i = 0; i < 7; i++){
+		char* func = *(funcs + i);
+		if(strcmp(func, name) == 1){
+			strcpy(qf->name, name);
+			return true;
+		}
+	}
+		
+  	return false;
 }
 
 /* This function is not required ,but it may useful to debug */
